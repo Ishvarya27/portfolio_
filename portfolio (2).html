@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishvarya S - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #eef2f3, #8e9eab);
+            color: #333;
+            padding: 0;
+            margin: 30px;
+        }
+
+        .navbar {
+            background-color: #3c7787;
+            margin: 0%;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .navbar .nav-link {
+            color: #d8fdf5;
+            font-size: 16px;
+        }
+        .navbar .nav-link:hover {
+            color: #f1c232;
+        }
+
+        .hero {
+            text-align: center;
+            height:fit-content;
+            padding: 100px 20px;
+            background: url('images/hero-bg.jpg') no-repeat center center/cover;
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #52b788;
+            border: none;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 100%;
+            height: 100vh; /* Full screen height */
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider {
+            display: flex;
+            width: calc(100% * 3); /* Adjust to number of slides */
+            transition: transform 1s ease-in-out;
+            animation: slide 15s infinite; /* Adjust duration as needed */
+        }
+
+        .slide {
+            position: relative;
+            flex: 1 0 100%;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .overlay h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .overlay p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .overlay .btn {
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .overlay .btn:hover {
+            background: #0056b3;
+        }
+
+        @keyframes slide {
+            0%, 20% { transform: translateX(0); }
+            33%, 53% { transform: translateX(-100%); }
+            66%, 86% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+
+
+        .moving-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .section-header {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2b6777;
+        }
+
+            #about {
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: fit;
+            border: 4px solid #52b788;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+            align-self: left;
+        }
+
+        #about h4 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2b6777;
+            margin-bottom: 10px;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .about-text {
+            text-align: left;
+            padding: 10px;
+        }
+
+        
+
+        
+        .section-header {
+            display: inline-block;
+            font-size: 1.5rem;
+            color: #000000;
+            background-color: #c3f6ed;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #007bff;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+        }
+        .timeline-item .content {
+            background:#d8fdf5;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 45%;
+        }
+        .timeline-item.left .content {
+            left: 0;
+        }
+        .timeline-item.right .content {
+            left: 55%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #007bff;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .box {
+            background:#d8fdf5;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .achievements {
+            margin: 20px auto;
+            max-width: 800px;
+            align-self: left;
+            padding: 10px;
+        }
+
+        .achievements-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+        }
+
+        .achievement-cards {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .achievement-card {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            background-color: #eef7fb;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #333;
+        }
+
+        .achievement-card:nth-child(2n) {
+            background-color: #fef6e4;
+        }
+
+        .achievement-card:nth-child(3n) {
+            background-color: #f4eefc;
+        }
+        .box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .box h4 {
+            font-size: 1.8rem;
+            color: #2b6777;
+            margin-bottom: 20px;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .tech-stack .btn {
+            font-size: 12px;
+        }
+        
+        #contact {
+            padding: 60px 20px;
+            margin: 0%;
+            background: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+        }
+        .contact a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        .contact a:hover {
+            color: #147cd1;
+        }
+
+        .contact a img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container" style="margin: 0%;">
+            <a class="navbar-brand" href="#">Ishvarya S</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-slider" id="home">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="overlay">
+                        <h2>Welcome to My Portfolio</h2>
+                        <p>Explore my achievements, projects, and more!</p>
+                        <a href="#about" class="btn btn-primary">Learn More</a>
+                    </div>
+                    <img src="images/img1.jpg" alt="Image 1">
+                </div>
+                <div class="slide">
+                    <div class="overlay">
+                        <h2>Passionate about Technology</h2>
+                        <p>Innovating with Computer Vision & AI.</p>
+                        <a href="#achievements" class="btn btn-primary">See Achievements</a>
+                    </div>
+                    <img src="images/img2.jpg" alt="Image 2">
+                </div>
+                <div class="slide">
+                    <div class="overlay">
+                        <h2>Committed to Excellence</h2>
+                        <p>Discover my projects and contributions.</p>
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                    </div>
+                    <img src="images/img3.jpg" alt="Image 3">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+      <div id="about" class="container">
+        <header class="about-header">
+            <img src="images/profile.jpg" alt="Profile Photo" class="profile-photo">
+            <h4>Hey all! I'm Ishvarya👋</h4>
+        </header>
+        <div class="about-content">
+            <p>I'm an motivated and passionate Computer Science undergraduate at Thiagarajar College of Engineering, Madurai, with a strong passion for programming, technology, and solving complex problems. Specializing in computer vision and machine learning, I am committed to building transformative solutions that make a real-world impact.</p>
+            <p>I have been recognized twice for my academic excellence, securing the Silver Medal for ranking first in my department during my academic year. My participation in prestigious hackathons, such as the Computer Vision and AI Hackathon at IIT Madras Research Park and Caterpillar CODE-A-THON 2023, has fueled my passion for innovation. One of my key accomplishments is creating the Dental Hand Gesture Recognizer, showcased at IIT Madras Research Park and SOCPROS 2023 conference.</p>
+            <p> Beyond academics, I take pride in my leadership and problem-solving skills, and firmly believe that hard work, discipline, and perseverance are key to success.</p>
+            </div>
+    </div>
+    
+        <h2 id="achievements">Achievements</h2>
+        <hr>
+        <section>
+            <div class="achievements" >
+                
+                <div class="achievements-carousel" id="achievements-carousel">
+                    <div class="achievement-cards">
+                                <div class="achievement-card">
+                                    <h3>Academic First</h3>
+                                    <p>Computer Science & Engineering Department – Silver Medal Recipient.</p>
+                                </div>
+                                <div class="achievement-card">
+                                    <h3>Dental Hand Gesture Recognition</h3>
+                                    <p>Recognized for presenting the project at IIT Madras Research Park Project Expo.</p>
+                                </div>
+                                <div class="achievement-card">
+                                    <h3>Best Presentation Award</h3>
+                                    <p>Certificate of Achievement for Best Presentation on "Skilled Labor Employment" at Demo Day.</p>
+                                </div>
+                                <div class="achievement-card">
+                                    <h3>Hackathon Champion</h3>
+                                    <p>Secured 1st place in the 48-hour Machine Learning Hackathon by CSI Association.</p>
+                                </div>
+                                <div class="achievement-card">
+                                    <h3>Caterpillar CODE-A-THON</h3>
+                                    <p>Finalist in the 24-hour competition (2023).</p>
+                                </div>
+                                <div class="achievement-card">
+                                    <h3>AI & Machine Learning Hackathon</h3>
+                                    <p>Finalist in IIT Madras Research Park Hackathon (6-hour event).</p>
+                                </div>
+                                <div class="achievement-card">
+                                    <h3>UK Design Patent</h3>
+                                    <p>Image Stitching Enhanced Mobile Surveillance System has been officially registered for a UK Design Patent</p>
+                                </div>
+                    </div>
+                </div>
+            </div>
+           
+        </section>
+        
+
+        <section>
+            <h2 class="mb-3" id="exp">Experience</h2>
+            <hr>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="content">
+                        <div class="box">
+                        <h3>Internship</h3>
+                        <p>Fidelity Investments </p>
+                        <p>June 2024- August 2024 (2 months)</p>
+                        <p>Worked with Angular and Node.js to migrate APIs and build applications for Trading products of Fidelity.</p>
+                    </div></div>
+                    
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <div class="box">
+                        <h3>Coders Club General Treasurer</h3>
+                        <p>Thiagarajar College of Engineering</p>
+                        <p>Sep 2024 – Nov 2024 (3 months)</p>
+                        <p>Conducted coding events for juniors to prepare them for placements.</p>
+                    </div></div>
+                    
+                </div>
+                <div class="timeline-item left">
+                    <div class="content">
+                        <div class="box">
+                        <h3>Coders Club Joint Treasurer</h3>
+                        <p>Thiagarajar College of Engineering</p>
+                        <p>Oct 2023 – Sep 2024 (1 year)</p>
+                        <p>Organized coding events on Hackerrank platforms and conducted events to promote coding culture.</p>
+                    </div>
+                    </div>
+                    
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <div class="box">
+                        <h3>Education - B.E</h3>
+                        <p>Thiagarajar College of Engineering</p>
+                        <p>2021 – 2025</p>
+                        <p>Currently pursuing Computer Science and Engineering with a focus on machine learning and computer vision.</p>
+                    </div></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="mb-3" id="projects">Projects</h2>
+            <hr>
+            <div class="box">
+                <h4>Dental Hand Gesture Recognition</h4>
+                <div class="tech-stack">
+                    <button class="btn btn-primary btn-sm">Flask</button>
+                    <button class="btn btn-primary btn-sm">OpenCV</button>
+                    <button class="btn btn-primary btn-sm">Mediapipe</button>
+                    <button class="btn btn-primary btn-sm">HTML</button>
+                    <button class="btn btn-primary btn-sm">CSS</button>
+                    <button class="btn btn-primary btn-sm">JavaScript</button>
+                </div>
+                <p>Developed an application to translate dental hand gestures into voice commands to improve patient communication during dental procedures.</p>
+                <p>Showcased at IIT Madras Research Park Project Expo and presented at SOCPROS 2023.</p>
+            </div>
+            <div class="box">
+                <h4>Fitness Tracker for Gym Exercises and Yoga Poses</h4>
+                <div class="tech-stack">
+                    <button class="btn btn-primary btn-sm">Flask</button>
+                    <button class="btn btn-primary btn-sm">OpenCV</button>
+                    <button class="btn btn-primary btn-sm">Mediapipe</button>
+                    <button class="btn btn-primary btn-sm">HTML</button>
+                    <button class="btn btn-primary btn-sm">CSS</button>
+                </div>
+                <p>Created an app that analyzes yoga poses and gym exercises, offering personalized feedback via email.</p>
+                <p>Secured 1st place in the Machine Learning 48-hour Hackathon conducted by the CSI Association.</p>
+            </div>
+            <div class="box">
+                <h4>Hostel Hub – A Hostel Management System</h4>
+                <div class="tech-stack">
+                    <button class="btn btn-primary btn-sm">Django</button>
+                    <button class="btn btn-primary btn-sm">OpenCV</button>
+                    <button class="btn btn-primary btn-sm">MySQL</button>
+                    <button class="btn btn-primary btn-sm">HTML</button>
+                    <button class="btn btn-primary btn-sm">CSS</button>
+                    <button class="btn btn-primary btn-sm">JavaScript</button>
+                </div>
+                <p>Designed a hostel management system with features like a food poll to minimize wastage, real-time shop status, and a query submission system for plumbing/electrical issues.</p>
+                <p>Presented at F’stival 2023 hosted by the Glugot Association.</p>
+            </div>
+        </section>
+    </div>
+    <section  class="contact"  id="contact">
+    <h2 class="mb-3">Contact </h2>
+    
+    <hr>
+
+    
+        <p>Feel free to reach out via social media or email.</p>
+        <a  href="https://github.com/Ishvarya27" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/ishvarya-s-81bab0233/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"> LinkedIn
+        </a>
+        <a href="mailto:ishvaryasathya@gmail.com" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email"> Email
+        </a>
+    </section>
+    
+    
+    <script>
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const carousel = document.getElementById('achievements-carousel');
+            const cards = carousel.querySelector('.achievement-cards');
+            const totalCards = cards.children.length;
+
+            currentIndex = (currentIndex + 1) % totalCards;
+            const offset = -currentIndex * 100;
+            cards.style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(updateCarousel, 3000);
+    </script>
+</body>
+</html>
